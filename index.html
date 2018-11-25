@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <title>Game_of_Life</title>
+
+  <style media="screen">
+  @font-face {
+    font-family: "Minecraft";
+    src: url('fonts/Minecraft.ttf') format("truetype");
+  }
+
+  ._pix{
+    font-family: "Minecraft", Verdana;
+  }
+  </style>
+
+</head>
+<body>
+  <div class="grid">
+
+    <div class="lift"></div>
+
+    <div class="row"><!-- Primary section -->
+
+      <!-- Column 1/1 unit -->
+      <div class="col-lg-12">
+        <div class="col">
+
+          <div class="row">
+            <div class="_middle">
+              <!-- Options -->
+              <span class="_pix _font-s">Type</span>
+              <select class="m-right-1">
+                <option value="acorn">Acorn</option>
+                <option value="adder">Adder</option>
+                <option value="ak47">AK47</option>
+                <option value="fuses">Fuses</option>
+                <option value="glider_compact">Glider compact</option>
+                <option value="gliders6">Gliders 6</option>
+                <option value="gun30">Gun 30</option>
+                <option value="hacksaw">Hacksaw</option>
+                <option value="loop">Loop</option>
+                <option value="pi">Pi</option>
+                <option value="pushgun">Pushgun</option>
+                <option value="quilt">Quilt</option>
+                <option value="race">Race</option>
+                <option value="rake">Rake</option>
+                <option value="rakegun">Rakegun</option>
+                <option value="randgun">Randgun</option>
+                <option value="relay">Relay</option>
+                <option value="revfuse">Revfuse</option>
+                <option value="rot8">Rot8</option>
+                <option value="round">Round</option>
+                <option value="sawtooth">Sawtooth</option>
+                <option value="spiral">Spiral</option>
+                <option value="still">Still</option>
+                <option value="track">Track</option>
+                <option value="wing">Wing</option>
+                <option value="zips">Zips</option>
+              </select>
+
+              <span id="instance" class="m-right-1">
+                <!-- Button - Clear/refresh -->
+                <button type="button" onclick="myFunction()">
+                  <i class="fa fa-refresh" aria-hidden="true"></i>
+                </button>
+
+                <!-- Button - Previous -->
+                <!-- <button class="back button-primary" type="button">
+                  <i class="fa fa-step-backward" aria-hidden="true"></i>
+                </button> -->
+
+                <!-- Button - Start/Stop -->
+                <button class="toggle button-primary" type="button" onclick="clickTo()">
+                  <i id="changeTo" class="fa fa-play fa-fw" aria-hidden="true"></i>
+                </button>
+
+                <!-- Button - Next -->
+                <button class="step button-primary" type="button">
+                  <i class="fa fa-step-forward" aria-hidden="true"></i>
+                </button>
+              </span>
+
+              <!-- Speed -->
+              <span class="_pix _font-s">Speed</span>
+              <select id="selected" class="m-right-1" name="">
+                <option value="1000">Slow</option>
+                <option value="100">Fast</option>
+                <option value="10">Hyper</option>
+              </select>
+
+              <!-- Size -->
+              <span class="_pix _font-s">Size</span>
+              <!-- Zoom in -->
+              <button class=" button-primary" type="button" onclick="zoomin()">
+                <i class="fa fa-search-plus" aria-hidden="true"></i>
+              </button>
+              <!-- Zoom out -->
+              <button class="m-right-1 button-primary" type="button" onclick="zoomout()">
+                <i class="fa fa-search-minus" aria-hidden="true"></i>
+              </button>
+
+              <!-- Counter -->
+              <span class="_pix _font-m">Generations: <span class="_pix _font-b" id="gen_counter"> 0</span></span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- End - Primary section -->
+
+    <div class="row"><!-- Secondary section -->
+      <div class="col-lg-12">
+        <div class="col p-zero">
+          <div class="row _surface dragscroll">
+            <!-- <img id="zoomer" class="_img" src="img/sample.jpeg" alt="image"> -->
+            <canvas id="cells" class="_cover" style="border: 0px solid black;">
+              You have to view this in a modern browser, for instance Firefox, Google Chrome or Safari.
+            </canvas>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- End - Secondary section -->
+
+    <div class="lift"></div>
+
+  </div>
+  <script type="text/javascript">
+    function myFunction() {
+      location.reload();
+    }
+
+    function clickTo() {
+      var element = document.getElementById("changeTo");
+      element.classList.toggle("fa-pause");
+    }
+  </script>
+
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
+  <script type="text/javascript" src="js/cells.js"></script>
+  <script type="text/javascript" src="js/zoom.js"></script>
+  <script type="text/javascript" src="js/dragscroll.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+html{
+  box-sizing: border-box;
+  margin: 0;
+}
+body{
+  font-family: monospace;
+  padding: 0;
+  margin: 0;
+  background: skyblue;
+}
+*,
+*:before,
+*::after{
+  box-sizing: inherit;
+}
+
+/* Defined Css Variables */
+:root{
+  --col-01: calc((var(--digit-)/12)*1);
+  --col-02: calc((var(--digit-)/12)*2);
+  --col-03: calc((var(--digit-)/12)*3);
+  --col-04: calc((var(--digit-)/12)*4);
+  --col-05: calc((var(--digit-)/12)*5);
+  --col-06: calc((var(--digit-)/12)*6);
+  --col-07: calc((var(--digit-)/12)*7);
+  --col-08: calc((var(--digit-)/12)*8);
+  --col-09: calc((var(--digit-)/12)*9);
+  --col-10: calc((var(--digit-)/12)*10);
+  --col-11: calc((var(--digit-)/12)*11);
+  --col-12: calc((var(--digit-)/12)*12);
+
+  --digit-: 100%;
+  --em-: 1em;
+  --primary-: gray;
+  --wh-: white;
+  --margins-: 5em;
+  --vmax-: 40vmax;
+  --rad-: 3px;
+}
+
+/* Default size settings */
+.grid{
+  width: var(--digit-);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.grid:before,
+.grid:after,
+.row:before,
+.row:after{
+  content: " ";
+  display: table;
+}
+
+/* Ant-Overlap */
+.grid:after,
+.row:after{
+  clear: both;
+}
+[class*='col-']{
+  width: var(--digit-);
+  float: left;
+  min-height: 1px;
+}
+.col{
+  padding: 1em 0;
+  margin: 4px;
+  background-color: var(--wh-);
+  border-radius: var(--rad-);
+  box-shadow: 0 1px 1px rgba(0,0,0,.3);
+  color: var(--primary-);
+  text-align: center;
+}
+
+/* Between 640px and 320px */
+@media screen and (min-width:320px){
+  .col-lg-1{width: var(--col-01);}
+  .col-lg-2{width: var(--col-02);}
+  .col-lg-3{width: var(--col-03);}
+  .col-lg-4{width: var(--col-04);}
+  .col-lg-5{width: var(--col-05);}
+  .col-lg-6{width: var(--col-06);}
+  .col-lg-7{width: var(--col-07);}
+  .col-lg-8{width: var(--col-08);}
+  .col-lg-9{width: var(--col-09);}
+  .col-lg-10{width: var(--col-10);}
+  .col-lg-11{width: var(--col-11);}
+  .col-lg-12{width: var(--col-12);}
+}
+/* Between 960px and 640px */
+@media screen and (min-width:640px){
+  .col-wd-1{width: var(--col-01);}
+  .col-wd-2{width: var(--col-02);}
+  .col-wd-3{width: var(--col-03);}
+  .col-wd-4{width: var(--col-04);}
+  .col-wd-5{width: var(--col-05);}
+  .col-wd-6{width: var(--col-06);}
+  .col-wd-7{width: var(--col-07);}
+  .col-wd-8{width: var(--col-08);}
+  .col-wd-9{width: var(--col-09);}
+  .col-wd-10{width: var(--col-10);}
+  .col-wd-11{width: var(--col-11);}
+  .col-wd-12{width: var(--col-12);}
+}
+/* Between 1280px and 960px */
+@media screen and (min-width:960px){
+  .col-md-1{width: var(--col-01);}
+  .col-md-2{width: var(--col-02);}
+  .col-md-3{width: var(--col-03);}
+  .col-md-4{width: var(--col-04);}
+  .col-md-5{width: var(--col-05);}
+  .col-md-6{width: var(--col-06);}
+  .col-md-7{width: var(--col-07);}
+  .col-md-8{width: var(--col-08);}
+  .col-md-9{width: var(--col-09);}
+  .col-md-10{width: var(--col-10);}
+  .col-md-11{width: var(--col-11);}
+  .col-md-12{width: var(--col-12);}
+}
+/* Between Infinity and 1280px */
+@media screen and (min-width:1280px){
+  .col-sm-1{width: var(--col-01);}
+  .col-sm-2{width: var(--col-02);}
+  .col-sm-3{width: var(--col-03);}
+  .col-sm-4{width: var(--col-04);}
+  .col-sm-5{width: var(--col-05);}
+  .col-sm-6{width: var(--col-06);}
+  .col-sm-7{width: var(--col-07);}
+  .col-sm-8{width: var(--col-08);}
+  .col-sm-9{width: var(--col-09);}
+  .col-sm-10{width: var(--col-10);}
+  .col-sm-11{width: var(--col-11);}
+  .col-sm-12{width: var(--col-12);}
+}
+
+/* Additional */
+.lift{
+  margin: 3em 0;
+}
+
+/* Floats */
+._left{
+  float: left;
+  margin-left: var(--margins-);
+}
+
+._middle{
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+._right{
+  float: right;
+  margin-right: var(--margins-);
+}
+
+/* Units - margin */
+.m-left-1{
+  margin-left: var(--margins-);
+}
+
+.m-right-1{
+  margin-right: var(--margins-);
+}
+.p-zero{
+  padding: 0 !important;
+}
+
+/* Font-size - custom */
+._font-s{
+  font-size: calc(var(--em-)*1);
+  vertical-align: sub;
+  color: var(--primary-);
+}
+._font-m{
+  font-size: calc(var(--em-)*1.2);
+  vertical-align: sub;
+  color: var(--primary-);
+}
+._font-b{
+  font-size: calc(var(--em-)*1.4);
+  vertical-align: sub;
+  color: var(--primary-);
+}
+
+/* Secondary section - size settings */
+._surface{
+  /* width: var(--digit-); */
+  /* max-height: var(--vmax-); */
+  overflow: hidden;
+  cursor: grab;
+  cursor: -o-grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  border-radius: var(--rad-);
+
+  /* min-height: var(--vmax-); */
+}
+._cover{
+  /* min-height: var(--vmax-); */
+  /* width: var(--digit-); */
+}
+
+
+
+
+
+
+
+
+
+/* The end of the stylesheet */
